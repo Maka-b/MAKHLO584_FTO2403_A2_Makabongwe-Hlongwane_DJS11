@@ -8,6 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>DJS 11 PodCast App</h1>
         <p>
+          what is going on
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <h1 className="text-3xl font-bold underline text-blue-600">
