@@ -54,7 +54,7 @@ export default function FetchGenres(){
             console.error('Error processing genres:', error)
         })
 
-
+    
 }
 
     
