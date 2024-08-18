@@ -1,11 +1,13 @@
 import ShowList from './components/ShowList';
 import './App.css';
-import FetchData from './components/CustomHooks/FetchData';
+import GenresList from './components/FetchGenres';
+
 
 function App() {
   return (
     <div className="App">
       <ShowList />
+      <GenresList />
       
     </div>
   );
