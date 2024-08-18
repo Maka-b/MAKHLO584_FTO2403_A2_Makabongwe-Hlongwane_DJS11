@@ -48,7 +48,7 @@ export default function FetchGenres(){
                 acc.push({ title: podcast.title, genres: genres })
                 return acc
             }, [])
-            console.log(matchedItems)
+            return matchedItems
         })
         .catch(error => {
             console.error('Error processing genres:', error)

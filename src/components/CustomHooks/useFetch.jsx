@@ -22,7 +22,7 @@ export default function useFetch(url, fetchName = "information"){
                 setError(error)
                 setLoading(false)
             })
-        },[url])
+        },[url, fetchName])
     
     return {error, data, loading}
 }
