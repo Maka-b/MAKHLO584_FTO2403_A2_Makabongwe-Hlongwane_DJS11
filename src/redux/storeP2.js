@@ -1,4 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore} from "@reduxjs/toolkit"
+import { setGenres, setMatchedItems } from "./features/genresSlice";
+import handleGenres from "./features/genresSlice";
 
 // Define the initial state
 const initialState = {
@@ -21,7 +23,12 @@ function handleState(state = initialState, action) {
 
 // Configure the store and pass the reducer as an object
 const store = configureStore({
-    reducer: handleState,
+    reducer: {
+        user: handleState,
+        genres: handleGenres ,
+        
+    }
+
 })
 
 export default store

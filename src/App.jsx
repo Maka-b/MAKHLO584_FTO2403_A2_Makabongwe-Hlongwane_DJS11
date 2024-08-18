@@ -8,6 +8,7 @@ import Sidebar from './components/Elements/Sidebar';
 import Searchbar from './components/Elements/Searchbar';
 import TopPlay from './components/Elements/TopPlay';
 
+
 import { connect, useSelector } from 'react-redux';
 // connect is imported to give state global access to App children
 
@@ -17,6 +18,9 @@ function App() {
 
   return (
     <div className="relative flex">
+      <FetchGenres />
+      
+      
       <Sidebar />
       <div className='flex-1 flex flex-col bg-gradient-to-br from-inherit to-slate-700'>
         <Searchbar />
