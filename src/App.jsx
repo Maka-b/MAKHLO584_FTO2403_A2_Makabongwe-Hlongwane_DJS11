@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import { PageExports } from './components/pages/PageExports';
 import Sidebar from './components/Elements/Sidebar';
 import Searchbar from './components/Elements/Searchbar';
-import TopPlay from './components/Elements/TopPlay';
+import Favourites from './components/Elements/Favourites';
 import { store } from './redux/storeP2';
 
 
@@ -43,7 +43,7 @@ function App() {
             </Routes>
           </div>
           <div className='xl:sticky relative top-0 h-fit'>
-            <TopPlay />
+            <Favourites />
           </div>
 
         </div>

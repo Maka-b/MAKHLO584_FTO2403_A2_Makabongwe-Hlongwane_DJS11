@@ -32,7 +32,7 @@ export default function DiscoverPage(){
     const dummyDataArray = [1,2,3,4,5,6,7]
 
     if (loading){
-        return (<div>Loading...</div>)
+        return <Loader title = "Loading..."/>
     }
     if (isFetching) return <Loader title = "Loading Available Shows..."/>
     if (error) return <Error/>
