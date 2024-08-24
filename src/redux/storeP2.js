@@ -1,7 +1,9 @@
 import { configureStore} from "@reduxjs/toolkit"
 import { setGenres, setMatchedItems } from "./features/genresSlice";
 import handleGenres from "./features/genresSlice";
-
+import { PodCoreApi } from "./services/podcastsCore";
+import { getDefaultNormalizer } from "@testing-library/react";
+import handlePlayer from './features/playerSlice'
 // Define the initial state
 const initialState = {
     user: undefined,
@@ -22,13 +24,14 @@ function handleState(state = initialState, action) {
 }
 
 // Configure the store and pass the reducer as an object
-const store = configureStore({
+export const store = configureStore({
     reducer: {
+        [PodCoreApi.reducerPath]: PodCoreApi.reducer,
         user: handleState,
         genres: handleGenres ,
-        
-    }
+        player: handlePlayer,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(PodCoreApi.middleware)
 
 })
 
-export default store

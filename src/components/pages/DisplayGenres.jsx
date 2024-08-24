@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import FetchGenres from "../Elements/FetchGenres";
+//import FetchGenres from "../Elements/FetchGenres";
 
 export default function DisplayGenres() {
     

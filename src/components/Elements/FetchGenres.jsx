@@ -3,13 +3,13 @@ import { useDispatch } from "react-redux";
 import { setGenres, setMatchedItems, setLoading, setError } from "../../redux/features/genresSlice";
 import FetchData from "./FetchData";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 
 export default function FetchGenres(){
     const dispatch = useDispatch()
-    const {data} = FetchData()
-
-    //console.log(data)
+    const{ data } = FetchData()
+   
     useEffect( ()=> {
         const genreContainer = []
         //const fetchGenrePromises =[]
@@ -18,7 +18,7 @@ export default function FetchGenres(){
 
         dispatch(setLoading(true))
         
-        
+        //add fetch shows information and create
         const fetchNextGenre =() =>{
             if (!fetching) return Promise.resolve()
 
@@ -73,9 +73,7 @@ export default function FetchGenres(){
             })
             .finally(()=>dispatch(setLoading(false)))
         },[data, dispatch])
-    return null
-
-    
+    return null  
 }
 
     

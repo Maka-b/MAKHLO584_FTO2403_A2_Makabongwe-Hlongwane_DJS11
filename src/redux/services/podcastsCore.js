@@ -1,0 +1,25 @@
+// redux/PodCoreApi.js
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+
+export const PodCoreApi = createApi({
+  reducerPath: 'PodCoreApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://podcast-api.netlify.app',
+  }),
+  endpoints: (builder) => ({
+    getAllPodcasts: builder.query({
+      query: () => '',
+      // Adjust the query endpoint as needed
+    }),
+    getShowInfo : builder.query({
+      query : ()=>`/id/`
+    }),
+    getGenreInfo : builder.query({
+      query : ()=>`/id/`
+    }),
+    // Define other endpoints here
+  }),
+});
+
+export const { useGetAllPodcastsQuery, useGetShowInfoQuery } = PodCoreApi;

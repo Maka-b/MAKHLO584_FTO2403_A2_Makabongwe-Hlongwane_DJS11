@@ -6,6 +6,7 @@ const initialState = {
     matchedItems : [],
     loading : false,
     error: null,
+    data:[],
 }
 
 const genreSlice = createSlice({
@@ -24,8 +25,11 @@ const genreSlice = createSlice({
         setError(state, action){
             state.error = action.payload
         },
+        setData(state,action){
+            state.data =action.payload
+        }
     },
 })
 
-export const { setGenres,setMatchedItems, setLoading, setError } = genreSlice.actions
+export const { setGenres,setMatchedItems, setLoading, setError, setData } = genreSlice.actions
 export default genreSlice.reducer

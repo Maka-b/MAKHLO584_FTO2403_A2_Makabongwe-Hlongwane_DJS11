@@ -7,9 +7,11 @@ import { PageExports } from './components/pages/PageExports';
 import Sidebar from './components/Elements/Sidebar';
 import Searchbar from './components/Elements/Searchbar';
 import TopPlay from './components/Elements/TopPlay';
+import { store } from './redux/storeP2';
 
 
-import { connect, useSelector } from 'react-redux';
+
+import { connect, Provider, useSelector } from 'react-redux';
 // connect is imported to give state global access to App children
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
   const user = useSelector(state => state.user)
 
   return (
+    
     <div className="relative flex">
       <FetchGenres />
       
@@ -27,6 +30,7 @@ function App() {
 
         <div className='px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse)'>
           <div className='flex-1 -fit pb-40'>
+
             <Routes>
               <Route path='/' element={<PageExports.DiscoverPage />} />
               <Route path='/' element={<PageExports.TopPodcasts />} />
@@ -47,6 +51,7 @@ function App() {
 
       
     </div>
+   
   );
 }
 
