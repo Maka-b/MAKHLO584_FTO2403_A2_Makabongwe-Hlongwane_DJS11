@@ -31,7 +31,7 @@ export default function PodCard( {podcast, i, isPlaying, activePod} ){
         if(favourites.some(fav => fav.id === podcast.id)){
             updateFavourites = favourites.filter(fav => fav.id !== podcast.id)
         }else{
-            updateFavourites =[...favourites, {id: podcast.id, title: podcast.title}]
+            updateFavourites =[...favourites, {id: podcast.id, title: podcast.title, image: podcast.image}]
         }
         setFavourites(updateFavourites)
         localStorage.setItem('favourites', JSON.stringify(updateFavourites))
