@@ -6,7 +6,7 @@ import { logo } from "../assets"
 import {links} from "../assets/constants"
 import { HiDesktopComputer, HiOutlineAcademicCap, HiOutlineMenu } from "react-icons/hi"
 
-const NavLinks =( {handleClick} ) => {
+const NavLinks =( {handleClick} ) => (
     <div className="mt-10">
         {links.map( item => {return (
             <NavLink className='flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400'
@@ -19,7 +19,7 @@ const NavLinks =( {handleClick} ) => {
             </NavLink>
         )} )}
     </div>
-}
+)
 
 export default function Sidebar(){
     const [mobileMenuOpen, setMobileMenuOpen ] = useState(false)
