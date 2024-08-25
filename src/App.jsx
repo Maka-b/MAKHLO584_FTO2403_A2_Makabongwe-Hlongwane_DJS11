@@ -36,7 +36,7 @@ function App() {
               <Route path='/' element={<PageExports.TopPodcasts />} />
               <Route path='/' element={<PageExports.Popular />} />
               <Route path='/' element={<PageExports.AroundYou />} />
-              <Route path='/' element={<PageExports.PodCastDetails />} />
+              <Route path='/podcast/:id' element={<PageExports.PodCastDetails />} />
               <Route path='/' element={<PageExports.EpisodeDetails />} />
               <Route path='/' element={<PageExports.Search />} />
 

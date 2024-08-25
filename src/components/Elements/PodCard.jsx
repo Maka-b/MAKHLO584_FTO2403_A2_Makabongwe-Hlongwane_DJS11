@@ -1,11 +1,12 @@
 import { json, Link } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import PlayPause from "./PlayPause"
 import { playPause, setActiveEpisode } from "../../redux/features/playerSlice"
 import { useGetShowInfoQuery } from "../../redux/services/podcastsCore"
 
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa"
+import { toggleClick } from "../../redux/features/isClickedSlice"
 //when clicked, make call to show address, save data in showInfo Array
 
 //const { data, error, isFetching } = useGetShowInfoQuery(podcast.id)
@@ -24,9 +25,13 @@ export default function PodCard( {podcast, i, isPlaying, activePod} ){
         const savedFavorites = localStorage.getItem('favourites')
         return savedFavorites ? JSON.parse(savedFavorites) : []
     })
-
+   
+    const dispatch = useDispatch()
+    const isClicked = useSelector((state)=> state.click.isClicked)
     const toggleFavourite = () => {
         let updateFavourites 
+        dispatch(toggleClick())
+        
 
         if(favourites.some(fav => fav.id === podcast.id)){
             updateFavourites = favourites.filter(fav => fav.id !== podcast.id)
@@ -40,7 +45,7 @@ export default function PodCard( {podcast, i, isPlaying, activePod} ){
     return (
         <div className="flex flex-col w-[250px] p-4 bg-blue-700 bg-opacity-80 backdrop-blur-sm animate rounded-lg cursor-pointer">
             <div className="relative w-full h-56 group">
-                <Link to={`<PodDetail>  ./shows/${podcast?.key}`}>
+                <Link to={`/podcast/${podcast.id}`}>
                     <img src={podcast.image} alt="pod_img" /> 
                 </Link> 
             </div>

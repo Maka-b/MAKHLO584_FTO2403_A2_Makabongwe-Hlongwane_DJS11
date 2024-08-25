@@ -13,7 +13,7 @@ export const PodCoreApi = createApi({
       // Adjust the query endpoint as needed
     }),
     getShowInfo : builder.query({
-      query : ()=>`/id/`
+      query : (podId)=>`/id/${podId}`
     }),
     getGenreInfo : builder.query({
       query : ()=>`/id/`

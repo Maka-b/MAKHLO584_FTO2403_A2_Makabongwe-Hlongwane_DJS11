@@ -4,6 +4,7 @@ import handleGenres from "./features/genresSlice";
 import { PodCoreApi } from "./services/podcastsCore";
 import { getDefaultNormalizer } from "@testing-library/react";
 import handlePlayer from './features/playerSlice'
+import handleClick from './features/isClickedSlice'
 // Define the initial state
 const initialState = {
     user: undefined,
@@ -30,6 +31,7 @@ export const store = configureStore({
         user: handleState,
         genres: handleGenres ,
         player: handlePlayer,
+        click: handleClick,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(PodCoreApi.middleware)
 
