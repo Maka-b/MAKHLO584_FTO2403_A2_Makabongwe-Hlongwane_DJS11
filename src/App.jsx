@@ -6,18 +6,40 @@ import { Routes, Route } from 'react-router-dom';
 import { PageExports } from './components/pages/PageExports';
 import Sidebar from './components/Elements/Sidebar';
 import Searchbar from './components/Elements/Searchbar';
-import Favourites from './components/Elements/Favourites';
+import Favourites from './components/pages/Favourites';
 import { store } from './redux/storeP2';
-
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Modal from './components/pages/Modal';
 
 
 import { connect, Provider, useSelector } from 'react-redux';
 // connect is imported to give state global access to App children
 
 function App() {
- 
-  const user = useSelector(state => state.user)
+  
+  const isClicked = useSelector((state)=> state.click.isClicked)
+  
+  const location = useLocation()
+  const [favLength, setFavLength] = useState(0)
+  useEffect(() => {
+    const savedFavorites = localStorage.getItem('favourites');
+    if (savedFavorites) {
+      const favArray = JSON.parse(savedFavorites);
+      setFavLength(favArray.length);
+    } else {
+      setFavLength(0);
+    }
+  }, [])
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+  
+   
   return (
     
     <div className="relative flex">
@@ -32,16 +54,18 @@ function App() {
           <div className='flex-1 h-fit pb-40'>
 
             <Routes>
-              <Route path='/' element={<PageExports.DiscoverPage />} />
-              <Route path='/favourites' element={<Favourites />} />
+              <Route path='/'   element={<PageExports.DiscoverPage />} />
+              <Route path='/favourites' key={favLength}  element={<Favourites />} />
               <Route path='/' element={<PageExports.Popular />} />
               <Route path='/' element={<PageExports.AroundYou />} />
               <Route path='/podcast/:id' element={<PageExports.PodCastDetails />} />
               <Route path='/' element={<PageExports.EpisodeDetails />} />
               <Route path='/' element={<PageExports.Search />} />
-
             </Routes>
+        
           </div>
+          <Favourites viewType='hidden'/>
+          
 
         </div>
       </div>

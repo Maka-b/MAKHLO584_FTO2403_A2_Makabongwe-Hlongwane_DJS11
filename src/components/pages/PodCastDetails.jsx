@@ -32,8 +32,7 @@ export default function PodCastDetails(){
     console.log(`podId: ${id}`)
     console.log(`pod: ${podData}`)
     const dummySeason = 1
-    const filteredEpisodes = podData?.seasons.filter( ses=>ses.season === dummySeason)
-
+    
     if (isFetchingPodDetails) return <Loader />;
     if (error || !podData) return <Error message="Podcast data not found." />
 

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { RiCloseLine } from "react-icons/ri"
+import Modal from "../pages/Modal"
+import Favourites from "../pages/Favourites"
 
 import { logo } from "../assets"
 import {links} from "../assets/constants"
@@ -24,7 +26,13 @@ const NavLinks =( {handleClick} ) => (
 
 export default function Sidebar(){
     const [mobileMenuOpen, setMobileMenuOpen ] = useState(false)
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const favLength = JSON.parse(localStorage.getItem('favourites'))?.length ||0
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+      };
+    
+    
     return(
         <>
             <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624]">

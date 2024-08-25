@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom"; 
 import { useSelector, useDispatch } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
@@ -23,7 +23,8 @@ const FavouritesCard =({podcast, i})=>(
 )
 
 
-export default function Favourites(){
+export default function Favourites( {viewType} ){
+    const location = useLocation()
     const dispatch = useDispatch()
     const [favouritePods, setFavouritePods] =useState([])
     const isClicked = useSelector((state)=> state.click.isClicked)
@@ -34,10 +35,10 @@ export default function Favourites(){
             setFavouritePods(JSON.parse(savedFavorites))
             console.log('changed')
         }
-    },[isClicked])
+    },[isClicked, location])
     
     return(
-        <div className="xl:ml-6 ml-0 xl:mb-0 mb-6  xl:max-w-[500px] max-w-full w-full flex flex-col  bg-blue-400">
+        <div className={`${viewType? viewType: null} xl:ml-6 ml-0 xl:mb-0 mb-6  xl:max-w-[500px] max-w-full w-full flex flex-col  bg-blue-400`}>
             <div className="w-full flex flex-col">
                 <div className="flex flex-row justify-between items-center">
                     <h2 className="hidden sm:block font-bold text-2xl">Favourites</h2>

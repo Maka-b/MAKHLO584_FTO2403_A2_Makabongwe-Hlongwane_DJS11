@@ -11,12 +11,6 @@ export default function PodCard( {podcast, i, isPlaying, activePod} ){
     //const { data, error, isFetching } = useGetShowInfoQuery(podcast.id)
     const dummyActivePod = 'Test'
 
-    const handlePauseClick = () =>{
-        
-    }
-    const handlePlayClick = () =>{
-        
-    }
 
     const [favourites, setFavourites] = useState( ()=>{
         const savedFavorites = localStorage.getItem('favourites')
