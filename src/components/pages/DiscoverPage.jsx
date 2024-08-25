@@ -52,15 +52,17 @@ export default function DiscoverPage(){
    
     const displayData = data.filter(podcast => filteredTitles.includes(podcast.title));
 
-
-    const sortedData = [...displayData].sort((a, b) => {
-        if (sortOrder === 'A-Z') {
-            return a.title.localeCompare(b.title);
+    // function immediatly invoked to set data when sorting option has not been chosen
+    const sortedData = (() => {
+        if (sortOrder === 'Normal') {
+            return displayData;
+        } else if (sortOrder === 'A-Z') {
+            return [...displayData].sort((a, b) => a.title.localeCompare(b.title));
         } else if (sortOrder === 'Z-A') {
-            return b.title.localeCompare(a.title);
+            return [...displayData].sort((a, b) => b.title.localeCompare(a.title));
         }
-        return 0;
-    })
+        return displayData;
+    })();
 
     
 
@@ -80,6 +82,7 @@ export default function DiscoverPage(){
                         value={sortOrder}
                         className='bg-black text-gray-300 p-3 text-sm rounded-lg outline-none'
                     >
+                        <option value='Latest'> Latest </option>
                         <option value="A-Z">Sort A-Z</option>
                         <option value="Z-A">Sort Z-A</option>
                 </select>
