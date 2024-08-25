@@ -34,7 +34,7 @@ export default function PodCard( {podcast, i, isPlaying, activePod} ){
     }
 
     return (
-        <div className="flex flex-col w-[250px] p-4 bg-blue-700 bg-opacity-80 backdrop-blur-sm animate rounded-lg cursor-pointer">
+        <div className="flex flex-col w-[250px] p-4 bg-gray-700 bg-opacity-80 backdrop-blur-sm animate rounded-lg cursor-pointer">
             <div className="relative w-full h-56 group">
                 <Link to={`/podcast/${podcast.id}`}>
                     <img src={podcast.image} alt="pod_img" /> 
