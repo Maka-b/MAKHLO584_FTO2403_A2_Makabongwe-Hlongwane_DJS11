@@ -60,39 +60,7 @@ export default function Favourites( {viewType} ){
                 </div>
             </div>
 
-            <div className="w-full flex flex-col mt-8">
-                <div className="w-full flex flex-col">
-                    <div className="flex flex-row justify-between items-center">
-                        <h2 className="font-bold text-2xl">Seasons</h2>
-                        <Link to='/your-favourites'> 
-                            <p className=" text-gray-600 text-base cursor-pointer">Episode List</p> 
-                        </Link>
-                    </div>
-                    <Swiper
-                    slidesPerView='auto'
-                    spaceBetween={15}
-                    freeMode
-                    centeredSlides
-                    centeredSlidesBounds
-                    modules={[FreeMode]}
-                    className="mt-4">
-                        {favouritePods?.map((season,i) =>(
-                            <SwiperSlide
-                            key={season.id}
-                            style={{ width: '25%' , height: 'auto' }}
-                            className="shadow-lg rounded-full animate-slide-right">
-                            <Link>
-                              <img src={season.image} alt='Show'
-                              className="rounded-full w-full object-cover"/>  
-                            </Link>
-                                
-                            </SwiperSlide>
-                        ) )}
-                    
-                        
-                    </Swiper>
-                </div>
-            </div>
+            
 
         </div>
     )
