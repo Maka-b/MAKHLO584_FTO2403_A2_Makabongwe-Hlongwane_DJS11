@@ -7,7 +7,7 @@ import { FreeMode } from "swiper/modules";
 
 import 'swiper/css'
 import 'swiper/css/free-mode'
-import ShowContainer from "./ShowContainer";
+import ShowContainer from "../Elements/ShowContainer";
 
 
 
@@ -15,7 +15,7 @@ const FavouritesCard =({podcast, i})=>(
     <div className="w-full flex flex-row items-center hover:bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
       <div className="flex-1 flex flex-row justify-between items-center">
         <img className="w-20 h-20 rounded-lg" src={podcast.image} alt={podcast.title} />
-        <div className="flex flex-1 flex-col justify-center mx-3">
+        <div className="flex flex-1 flex-col justify-center mx-3">  
                 <p className="text-xl font-bold">{podcast.title}</p>
         </div>
       </div>

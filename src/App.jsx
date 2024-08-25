@@ -33,7 +33,7 @@ function App() {
 
             <Routes>
               <Route path='/' element={<PageExports.DiscoverPage />} />
-              <Route path='/' element={<PageExports.TopPodcasts />} />
+              <Route path='/favourites' element={<Favourites />} />
               <Route path='/' element={<PageExports.Popular />} />
               <Route path='/' element={<PageExports.AroundYou />} />
               <Route path='/podcast/:id' element={<PageExports.PodCastDetails />} />
@@ -41,9 +41,6 @@ function App() {
               <Route path='/' element={<PageExports.Search />} />
 
             </Routes>
-          </div>
-          <div className='xl:sticky relative top-0 h-fit '>
-            <Favourites />
           </div>
 
         </div>

@@ -61,7 +61,7 @@ export default function PodCastDetails(){
                             <SwiperSlide
                                 key={season.id}
                                 style={{ width: '25%', height: 'auto' }}
-                                className="shadow-lg rounded-full animate-slide-right"
+                                className="shadow-lg rounded-full animate-slide-right cursor-pointer hover:scale-105 hover:opacity-80 transition-transform duration-300"
                                 onClick={()=>handleSeasonClick(season)}>
                                     <img   
                                     src={season.image} alt='Show' className="rounded-full w-full object-cover" />

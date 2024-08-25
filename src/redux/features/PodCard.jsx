@@ -1,9 +1,12 @@
 import { json, Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import PlayPause from "./PlayPause"
+import { playPause, setActiveEpisode } from "./playerSlice"
+import { useGetShowInfoQuery } from "../services/podcastsCore"
 
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa"
-import { toggleClick } from "../../redux/features/isClickedSlice"
+import { toggleClick } from "./isClickedSlice"
 //when clicked, make call to show address, save data in showInfo Array
 
 //const { data, error, isFetching } = useGetShowInfoQuery(podcast.id)
