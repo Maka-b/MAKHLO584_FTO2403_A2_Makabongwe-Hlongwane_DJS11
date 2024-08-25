@@ -7,6 +7,7 @@ import { useGetAllPodcastsQuery } from '../../redux/services/podcastsCore'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../Elements/Loader'
 import Error from '../Elements/Error'
+import Searchbar from '../Elements/Searchbar'
 
 
 // 
@@ -25,6 +26,7 @@ export default function DiscoverPage(){
     const{ loading, genreContainer, matchedItems } =useSelector(state => state.genres)
     const [selectedGenre, setSelectedGenre] = React.useState('')
     const [sortOrder, setSortOrder] = React.useState('A-Z')
+    const [searchTerm, setSearchTerm] = React.useState('')
 
     const handleChangeinGenre =(event)=>{
         setSelectedGenre(event.target.value)
@@ -33,6 +35,9 @@ export default function DiscoverPage(){
     const handleSortChange = (event) => {
         setSortOrder(event.target.value);
     };
+    const handleSearch = (term) => {
+        setSearchTerm(term)
+    }
 
     const dummyGenreTitle = 'true crime'
     const dummyDataArray = [1,2,3,4,5,6,7]
@@ -43,11 +48,13 @@ export default function DiscoverPage(){
     if (isFetching) return <Loader title = "Loading Available Shows..."/>
     if (error) return <Error/>
 
-    const filteredData = selectedGenre === 'All' || !selectedGenre
+    const filteredDataByGenre = selectedGenre === 'All' || !selectedGenre
     ? matchedItems
     : matchedItems.filter(podcast => podcast.genres.includes(selectedGenre));
 
-    const filteredTitles = filteredData.map(podcast => podcast.title);
+    const filteredDataBySearch = filteredDataByGenre.filter(podcast=> podcast.title.toLowerCase().includes(searchTerm.toLowerCase()))
+
+    const filteredTitles = filteredDataBySearch.map(podcast => podcast.title);
 
    
     const displayData = data.filter(podcast => filteredTitles.includes(podcast.title));
@@ -67,7 +74,7 @@ export default function DiscoverPage(){
     
 
     console.log("data", data)
-    console.log("matchedItems", filteredData)
+    console.log("matchedItems", filteredDataByGenre)
 
     
 
@@ -94,6 +101,8 @@ export default function DiscoverPage(){
                     <option>All</option>
                     {genreContainer.map(genre => <option key= {genre.id} value={genre.title}>{genre.title}</option>)}
                 </select>
+
+                <Searchbar onSearch={handleSearch} />
 
                 
 

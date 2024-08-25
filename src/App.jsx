@@ -56,11 +56,9 @@ function App() {
             <Routes>
               <Route path='/'   element={<PageExports.DiscoverPage />} />
               <Route path='/favourites' key={favLength}  element={<Favourites />} />
-              <Route path='/' element={<PageExports.Popular />} />
               <Route path='/' element={<PageExports.AroundYou />} />
               <Route path='/podcast/:id' element={<PageExports.PodCastDetails />} />
               <Route path='/' element={<PageExports.EpisodeDetails />} />
-              <Route path='/' element={<PageExports.Search />} />
             </Routes>
         
           </div>

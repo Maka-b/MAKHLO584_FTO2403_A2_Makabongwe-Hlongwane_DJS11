@@ -15,11 +15,9 @@ export const PodCoreApi = createApi({
     getShowInfo : builder.query({
       query : (podId)=>`/id/${podId}`
     }),
-    getGenreInfo : builder.query({
-      query : ()=>`/id/`
-    }),
+   
     // Define other endpoints here
   }),
 });
 
-export const { useGetAllPodcastsQuery, useGetShowInfoQuery } = PodCoreApi;
+export const { useGetAllPodcastsQuery, useGetShowInfoQuery, useGetShowsBySearchQuery } = PodCoreApi;
