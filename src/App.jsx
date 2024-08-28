@@ -1,7 +1,7 @@
 
 import './App.css';
 
-import FetchGenres from './components/Elements/FetchGenres';
+import FetchGenres from './components/CustomHooks/FetchGenres';
 import { Routes, Route } from 'react-router-dom';
 import { PageExports } from './components/pages/PageExports';
 import Sidebar from './components/Elements/Sidebar';

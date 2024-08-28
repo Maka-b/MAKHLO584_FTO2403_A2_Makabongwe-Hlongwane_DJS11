@@ -1,7 +1,7 @@
 
 import { useDispatch } from "react-redux";
 import { setGenres, setMatchedItems, setLoading, setError } from "../../redux/features/genresSlice";
-import FetchData from "./FetchData";
+import FetchData from "../Elements/FetchData";
 import { useEffect } from "react";
 
 

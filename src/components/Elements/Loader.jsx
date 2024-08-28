@@ -8,4 +8,4 @@ export default function Loader( {title} ){
     )
 }
 
-// can add prop image for different errors
+// add prop image for different errors

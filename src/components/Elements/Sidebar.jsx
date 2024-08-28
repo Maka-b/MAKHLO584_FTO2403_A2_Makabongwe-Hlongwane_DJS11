@@ -5,7 +5,7 @@ import { RiCloseLine } from "react-icons/ri"
 
 import { logo } from "../assets"
 import {links} from "../assets/constants"
-import { HiDesktopComputer, HiOutlineAcademicCap, HiOutlineMenu } from "react-icons/hi"
+import { HiOutlineMenu } from "react-icons/hi"
 import TestIcon from "./TestIcon"
 
 const NavLinks =( {handleClick} ) => (
@@ -25,12 +25,6 @@ const NavLinks =( {handleClick} ) => (
 
 export default function Sidebar(){
     const [mobileMenuOpen, setMobileMenuOpen ] = useState(false)
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const favLength = JSON.parse(localStorage.getItem('favourites'))?.length ||0
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-      };
-    
     
     return(
         <>

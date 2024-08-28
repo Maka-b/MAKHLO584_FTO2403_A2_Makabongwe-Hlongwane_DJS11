@@ -107,7 +107,7 @@ export default function DiscoverPage(){
                         />
                     ))
                 ) : (
-                    <p className='text-gray-500'>No podcasts available for the selected genre.</p>
+                    <p className='text-gray-500'>No podcasts with that name available {selectedGenre === 'All' ? null : 'for the selected genre.'}</p>
                 )}
             
         </div>
