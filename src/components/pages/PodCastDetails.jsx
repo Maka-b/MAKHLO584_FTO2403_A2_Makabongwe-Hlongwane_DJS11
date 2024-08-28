@@ -84,15 +84,10 @@ export default function PodCastDetails(){
                         )}
                     </ul>
                 </div>
-            )}
-
-                   
-                   
+            )}    
                    
                 </div>
             </div>
-
-           
         </div>
     )
 }

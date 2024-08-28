@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { setGenres, setMatchedItems, setLoading, setError } from "../../redux/features/genresSlice";
 import FetchData from "./FetchData";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+
 
 
 export default function FetchGenres(){
@@ -41,11 +41,8 @@ export default function FetchGenres(){
                         dispatch(setError(error.message))
                     }
                     fetching = false
-                    dispatch(setGenres(genreContainer))
-                    
-                       
-                });
-                    
+                    dispatch(setGenres(genreContainer))                         
+                });            
         }
 
         fetchNextGenre()

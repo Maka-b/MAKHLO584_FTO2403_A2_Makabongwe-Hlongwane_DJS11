@@ -20,4 +20,4 @@ export const PodCoreApi = createApi({
   }),
 });
 
-export const { useGetAllPodcastsQuery, useGetShowInfoQuery, useGetShowsBySearchQuery } = PodCoreApi;
+export const { useGetAllPodcastsQuery, useGetShowInfoQuery } = PodCoreApi;

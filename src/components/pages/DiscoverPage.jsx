@@ -1,7 +1,5 @@
 import React from 'react'
 import PodCard from '../Elements/PodCard'
-//import ShowList from '../Elements/ShowList'
-//import FetchData from '../Elements/FetchData'
 import { useGetAllPodcastsQuery } from '../../redux/services/podcastsCore'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,11 +16,8 @@ export default function DiscoverPage(){
     
     
     const { data, error, isFetching } = useGetAllPodcastsQuery();
-    const dispatch = useDispatch()
-    const { activePod, isPlaying } = useSelector( state => state.player) 
     //console.log(data)
     
-
     const{ loading, genreContainer, matchedItems } =useSelector(state => state.genres)
     const [selectedGenre, setSelectedGenre] = React.useState('')
     const [sortOrder, setSortOrder] = React.useState('A-Z')
@@ -61,7 +56,7 @@ export default function DiscoverPage(){
 
     // function immediatly invoked to set data when sorting option has not been chosen
     const sortedData = (() => {
-        if (sortOrder === 'Normal') {
+        if (sortOrder === 'Latest') {
             return displayData;
         } else if (sortOrder === 'A-Z') {
             return [...displayData].sort((a, b) => a.title.localeCompare(b.title));
@@ -73,8 +68,8 @@ export default function DiscoverPage(){
 
     
 
-    console.log("data", data)
-    console.log("matchedItems", filteredDataByGenre)
+   //console.log("data", data)
+   // console.log("matchedItems", filteredDataByGenre)
 
     
 
@@ -82,8 +77,7 @@ export default function DiscoverPage(){
         //genre dropdown list
         <div className='flex flex-col w-full'>
             <div className='w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10'>
-                <h2 className='font-bold text-3xl'>Discover {selectedGenre==='All'?null:selectedGenre}</h2>
-                
+                <h2 className='font-bold text-3xl'>Discover {selectedGenre==='All'?null:selectedGenre}</h2>              
                 <select
                         onChange={handleSortChange}
                         value={sortOrder}
@@ -101,22 +95,15 @@ export default function DiscoverPage(){
                     <option>All</option>
                     {genreContainer.map(genre => <option key= {genre.id} value={genre.title}>{genre.title}</option>)}
                 </select>
-
-                <Searchbar onSearch={handleSearch} />
-
-                
-
-            </div>
-        
+                <Searchbar onSearch={handleSearch} />              
+            </div>     
         <div className='flex flex-wrap sm:justify-start justify-center gap-8'>
         {sortedData.length > 0 ? (
                     sortedData.map((podcast, i) => (
                         <PodCard
                             key={podcast.id}
                             podcast={podcast}
-                            index={i}
-                            isPlaying={isPlaying}
-                            activePod={activePod}
+                            index={i}                  
                         />
                     ))
                 ) : (

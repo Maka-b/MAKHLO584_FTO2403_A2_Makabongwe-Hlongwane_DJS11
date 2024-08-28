@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { RiCloseLine } from "react-icons/ri"
-import Modal from "../pages/Modal"
-import Favourites from "../pages/Favourites"
+
 
 import { logo } from "../assets"
 import {links} from "../assets/constants"
@@ -37,10 +36,8 @@ export default function Sidebar(){
         <>
             <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-black bg-opacity-80">
                 <img src={logo} alt="logo" className="w-full h-20object-contain" />
-                
                 <NavLinks/>
-            </div>
-            
+            </div>     
             <div className="absolute md:hidden block top-6">
                 {mobileMenuOpen ? (
                     <RiCloseLine className="w-5 text-black mr-2"

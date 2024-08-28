@@ -7,7 +7,7 @@ import { toggleClick } from "../../redux/features/isClickedSlice"
 //when clicked, make call to show address, save data in showInfo Array
 
 //const { data, error, isFetching } = useGetShowInfoQuery(podcast.id)
-export default function PodCard( {podcast, i, isPlaying, activePod} ){
+export default function PodCard( {podcast} ){
     //const { data, error, isFetching } = useGetShowInfoQuery(podcast.id)
     const dummyActivePod = 'Test'
 
@@ -18,7 +18,7 @@ export default function PodCard( {podcast, i, isPlaying, activePod} ){
     })
    
     const dispatch = useDispatch()
-    const isClicked = useSelector((state)=> state.click.isClicked)
+    
     const toggleFavourite = () => {
         let updateFavourites 
         dispatch(toggleClick())
@@ -41,15 +41,11 @@ export default function PodCard( {podcast, i, isPlaying, activePod} ){
                 </Link> 
             </div>
             <div className="mt-4 flex flex-col">
-                <p className="font-semibold text-lg ">
-                    <Link to={`./shows/${podcast?.key}`}>
-                        {podcast.title}
-                    </Link>
+                <p className="font-semibold text-lg ">                   
+                     {podcast.title}               
                 </p>
                 <p className="font-semibold text-lg ">
-                <Link to={podcast.id ? `id/${podcast.id}`: '/'}>
-                        {podcast.seasons} {podcast.seasons === 1 ? 'Season' : 'Seasons'}
-                    </Link>
+                    {podcast.seasons} {podcast.seasons === 1 ? 'Season' : 'Seasons'}
                 </p>
                 <button onClick={toggleFavourite} className="mt-2 self-start">
                     <FaStar 

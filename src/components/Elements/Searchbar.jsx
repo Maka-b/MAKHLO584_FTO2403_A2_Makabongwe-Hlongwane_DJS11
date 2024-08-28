@@ -7,9 +7,7 @@ export default function Searchbar({ onSearch }){
     const handleSubmit= (e)=>{
         e.preventDefault()
         setSearchTerm(e.target.value);
-        onSearch(e.target.value);
-
-        
+        onSearch(e.target.value);  
     }
 
     return(
@@ -30,7 +28,6 @@ export default function Searchbar({ onSearch }){
             className=" flex-1 bg-transparent border-none
             outline-none placeholder:bg-gray-900 text-base text-gray-900 p-4 rounded-lg"
             />
-
         </div>
     </form>
     )
