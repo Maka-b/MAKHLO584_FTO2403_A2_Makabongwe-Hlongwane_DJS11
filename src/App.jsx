@@ -32,7 +32,7 @@ function App() {
               <Route path='/podcast/:id' element={<PageExports.PodCastDetails />} />
             </Routes>
           </div>
-          {/*React wont render favourites when nested in Routes*/}
+          {/*React wont re-render favourites when nested in Routes*/}
           <Favourites viewType='hidden'/>
         </div>
       </div>
