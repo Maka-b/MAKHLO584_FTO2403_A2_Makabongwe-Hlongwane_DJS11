@@ -38,7 +38,7 @@ export default function Favourites( {viewType} ){
     },[isClicked, location])
     
     return(
-        <div className={`${viewType? viewType: null} xl:ml-6 ml-0 xl:mb-0 mb-6  xl:max-w-[500px] max-w-full w-full flex flex-col  bg-blue-400`}>
+        <div className={`${viewType? viewType: null} xl:ml-6 ml-0 xl:mb-0 mb-6  xl:max-w-[500px] max-w-full w-full flex flex-col   bg-black bg-opacity-80`}>
             <div className="w-full flex flex-col">
                 <div className="flex flex-row justify-between items-center">
                     <h2 className="hidden sm:block font-bold text-2xl">Favourites</h2>
@@ -60,7 +60,42 @@ export default function Favourites( {viewType} ){
                 </div>
             </div>
 
-            
+            <div className="w-full flex flex-col mt-8">
+                <div className="w-full flex flex-col">
+                    <div className="flex flex-row justify-between items-center">
+                        <h2 className="font-bold text-2xl">Seasons</h2>
+                        
+                            <p className=" text-gray-600 text-base cursor-pointer">Episode List</p> 
+                        
+                    </div>
+                    <Swiper
+                    slidesPerView='auto'
+                    spaceBetween={15}
+                    freeMode
+                    centeredSlides
+                    centeredSlidesBounds
+                    modules={[FreeMode]}
+                    className="mt-4">
+
+    
+                         
+                        {favouritePods?.map((podcast,i) =>(
+                            <Link to={`/podcast/${podcast.id}`}>
+                                <SwiperSlide
+                                key={podcast.id}
+                                style={{ width: '25%' , height: 'auto' }}
+                                className="shadow-lg rounded-full animate-slide-right">
+                        
+                                <img src={podcast.image} alt='Show'
+                                className="rounded-full w-full object-cover"/>  
+                                    
+                                </SwiperSlide>
+                            </Link>
+                        ) )}
+                        
+                    </Swiper>
+                </div>
+            </div>
 
         </div>
     )

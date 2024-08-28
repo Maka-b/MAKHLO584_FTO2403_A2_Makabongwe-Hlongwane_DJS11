@@ -13,11 +13,11 @@ export default function Searchbar({ onSearch }){
     }
 
     return(
-    <form onSubmit={handleSubmit} autoComplete="off" className="p-4 text-gray-500 focus-within:text-gray-800">
+    <form onSubmit={handleSubmit} autoComplete="off" className="p-4 text-gray-500 focus-within:text-gray-800 ">
         <label htmlFor="search-field" className="sr-only"> 
             Search All Podcasts 
         </label>
-        <div className="flex flex-row justify-start items-center rounded-md">
+        <div className="flex flex-row justify-start items-center rounded-lg">
             <FiSearch className="w-5 h-5 ml-4" />
             <input
             name="search-field"
@@ -28,7 +28,7 @@ export default function Searchbar({ onSearch }){
             value={searchTerm}
             onChange={handleSubmit}
             className=" flex-1 bg-transparent border-none
-            outline-none placeholder:bg-gray-700 text-base text-gray-900 p-4"
+            outline-none placeholder:bg-gray-900 text-base text-gray-900 p-4 rounded-lg"
             />
 
         </div>
