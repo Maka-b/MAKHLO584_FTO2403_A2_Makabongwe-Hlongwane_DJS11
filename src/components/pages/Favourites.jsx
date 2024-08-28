@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom"; 
 import { useSelector, useDispatch } from "react-redux";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
-
-
-import 'swiper/css'
-import 'swiper/css/free-mode'
-import ShowContainer from "../Elements/ShowContainer";
-
 
 
 const FavouritesCard =({podcast, i})=>(
@@ -25,7 +17,6 @@ const FavouritesCard =({podcast, i})=>(
 
 export default function Favourites( {viewType} ){
     const location = useLocation()
-    const dispatch = useDispatch()
     const [favouritePods, setFavouritePods] =useState([])
     const isClicked = useSelector((state)=> state.click.isClicked)
 

@@ -49,10 +49,11 @@ export default function PodCard( {podcast} ){
                 </p>
                 <button onClick={toggleFavourite} className="mt-2 self-start">
                     <FaStar 
-                    size={24} // Size of the icon
+                    size={24} 
                     color={favourites.some(fav => fav.id === podcast.id) ? "gold" : "gray"} 
                     className="cursor-pointer" />
                 </button>
+                
             </div>
         </div>
     )

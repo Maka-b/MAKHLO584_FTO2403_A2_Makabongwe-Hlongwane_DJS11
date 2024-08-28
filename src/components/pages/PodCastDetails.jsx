@@ -3,6 +3,8 @@ import Error from "../Elements/Error"
 import Loader from "../Elements/Loader"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
+import 'swiper/css'
+import 'swiper/css/free-mode'
 
 import { useState } from "react"
 

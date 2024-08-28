@@ -12,7 +12,7 @@ import { store } from './redux/storeP2';
 
 
 
-import { connect, Provider, useSelector } from 'react-redux';
+import { connect} from 'react-redux';
 // connect is imported to give state global access to App children
 
 function App() {

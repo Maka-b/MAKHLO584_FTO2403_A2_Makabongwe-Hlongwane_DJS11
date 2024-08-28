@@ -2,7 +2,7 @@ import React from 'react'
 import PodCard from '../Elements/PodCard'
 import { useGetAllPodcastsQuery } from '../../redux/services/podcastsCore'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Loader from '../Elements/Loader'
 import Error from '../Elements/Error'
 import Searchbar from '../Elements/Searchbar'
